@@ -20,6 +20,36 @@ end
 - Rust 1.70 or later (for compiling NIFs)
 - Solana CLI tools (for interacting with the Solana network)
 
+## Docker Support
+
+If you prefer not to install Rust locally, you can use Docker to build and test the project:
+
+1.  Make sure Docker is installed on your system
+2.  Create a `docker-compose.yml` file with the following content:
+
+```yaml
+version: '3'
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+    command: mix test
+```
+
+3. Run tests with:
+
+```bash
+docker-compose up
+```
+
+4. Run other commands with:
+
+```bash
+docker-compose run app mix compile
+```
+
 ## Usage
 
 ### Creating a Merkle Tree
